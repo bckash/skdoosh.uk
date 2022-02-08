@@ -43,7 +43,7 @@
     animation-name: toLeft;
     animation-duration: 0.2s;
     animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    animation-fill-mode: backwards;
 }
 
 @keyframes toLeft {
