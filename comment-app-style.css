@@ -1,0 +1,435 @@
+
+:root {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+
+    --name: rgb(241, 241, 241);
+    --name-txt: rgb(94, 94, 94);
+    --red: rgb(138, 31, 31);
+    --green: rgb(44, 189, 44);
+    --l-green: rgb(144, 226, 144);
+    --a-grey: rgb(216, 216, 216)
+}
+
+*, *::before, *::after {box-sizing: border-box}
+
+.comment-app__cont {margin: 2rem;}
+.br {border: dotted black 1px;}
+
+
+
+/* .......................... */
+/* INTRO  */
+/* .......................... */
+
+.welcome {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 97vh;
+    width: 98%;
+}
+
+#panda, #hello-there, .intro-thx, .intro-comment {
+    position: absolute;
+    margin: 0 auto;
+}
+
+#panda {
+    top: 7rem;
+    animation-name: toLeft;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes toLeft {
+    from {left: -30rem;}
+    to {left: 18.5rem;}
+}
+
+#hello-there {
+    font-size: 3rem;
+    top: 31rem;
+    background-color: white;
+    opacity: 0;
+
+    animation-name: toRight;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes toRight {
+    from {
+        opacity: 0;
+        right: -30rem;}
+    to {
+        opacity: 1;
+        right: 25rem;}
+}
+
+.intro-thx, .intro-comment {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    width: 70%;
+}
+
+
+p.intro-thx {
+    font-size: 1.7rem;
+    color: black;
+    margin-bottom: 1rem;
+    top: 35.7rem;
+
+    opacity: 0;
+
+    animation-name: slideDown;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-delay: .7s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0; 
+        transform: translate3d(0, -40%, 0); }
+    to { 
+        opacity: 1;
+        transform: translate3d(0, 0, 0); }
+  }
+
+.welcome .material-icons {
+    font-size: 3rem;
+    position: absolute;
+    top: 38rem;
+
+    animation-name: opa;
+    animation-duration: 2s;
+    animation-delay: 1.2s;
+    animation-fill-mode: forwards;
+
+    opacity: 0;
+}
+
+@keyframes opa {
+    from {
+        opacity: 0; ; }
+    to { 
+        opacity: 1; }
+}
+
+.intro-comment {
+    top: 32rem;
+    display: none;
+}
+
+article.welcome h1 {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin: 1rem;
+}
+
+section.comment-add__cont h2, section.comment-list__cont h2 {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+.kung-fu-font {
+    color: var(--red);
+    font-size: 2rem;
+    font-family: 'Chewy', cursive;
+}
+
+
+/* ADD COMMENT - [avatar].......... */
+
+
+.comment-app__cont {
+    padding: 2rem 0;
+    display: none;
+}
+
+.avatar__cont {
+    border: var(--a-grey) 2px solid;
+}
+
+#arr-L, .avatar__cont, #arr-R {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#arr-L, #arr-R {
+    border: none;
+    background-color: unset;
+}
+
+.material-icons:hover {
+    color: green;
+    transition: color .3s;
+}
+
+.kfp-avatar {
+    padding: 2px;
+    width: 100px;
+}
+
+.kfp-avatar, .avatar__cont {
+    border-radius: 100px;
+}
+
+.kfp-avatar:hover {
+    cursor: pointer;
+}
+
+.avatar-add__cont {
+    display: inline-block;
+    position: relative;
+}
+
+.avatar-hov-border {
+    width: 112px;
+    height: 112px;
+    border-radius: 112px;
+    position: absolute;
+    top: -5px;
+    left: 19.7%;
+    z-index: -1;
+
+    border: transparent 4px dotted;
+
+    animation-name: spin;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+
+}
+
+@keyframes spin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes opa {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.js-border-animation {
+    border-color: green;
+    transition: border .2s;
+}
+
+.js-border-animation2 {
+    border-color: transparent;
+}
+
+.js-border-grey {
+    border: var(--a-grey) 2px solid;
+}
+
+.js-col-change {
+    border: 3px solid green;
+    transition: border .1s;
+}
+
+
+/* ADD COMMENT - [forms].......... */
+
+.comment-add__cont {
+    display: none;
+}
+
+.comment-add__cont, .comment-list__cont, .name-add__cont {
+    margin: 0.5em;
+}
+
+input[type="text"] {
+    text-align: center;
+    width: 50%;
+    max-width: 200px;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+input[type="submit"]  {
+    display: block;
+    margin: 0.5em auto;
+}
+
+input[type="text"], #comment {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 1.1rem;
+    border: 2px rgb(0, 0, 0) solid;
+}
+
+
+input[type="text"]:focus, #comment:focus {
+    border: 1px black solid;
+    outline: unset;
+}
+
+#comment {
+    padding: 0.5em;
+    text-align: center;
+}
+
+label {
+    color: rgb(90, 90, 90);
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.material-icons {color: rgb(156, 156, 156)}
+
+.material-icons:hover {
+    cursor: pointer;
+}
+
+/* COMMENT LIST........................... */
+
+.comment-list__cont {
+    display: none;
+    margin-top: 2rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-ex {
+    margin: 1em auto;
+    width: 60%;
+    max-width: 500px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 3.5rem;
+    border: 1px dotted rgb(190, 190, 190);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.comment-avatar {
+    border-bottom: 1px solid black;
+}
+
+pre {
+    font-size: 1.3rem;
+    font-family: 'Kelly Slab', cursive;
+    width: 100%;
+    white-space: pre-line;
+    color: rgb(58, 58, 58);
+}
+
+
+.com-body {
+    position: relative;
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+    padding: 1em 3em;
+}
+
+a#del {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+a#del:hover .material-icons {
+    color: var(--red);
+    cursor: pointer;
+}
+
+
+.com-name, .com-date {
+    grid-row: 2 / 3;
+
+    font-size: 0.8rem;
+    background-color: var(--name);
+    color: var(--name-txt);
+    border: white 2px solid;
+
+}
+
+.com-name {
+    border-bottom-left-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+
+    grid-column: 1 / 2;
+}
+
+.com-date {
+    padding: 0.5em;
+    border-bottom-right-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+
+    grid-column: 2 / 3;
+}
+
+.date-sub--P, .time-sub--P, .name-sub--P {
+    justify-self: start;
+}
+
+.date-sub--P, .time-sub--P {
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+}
+
+.date-sub--L, .time-sub--L, .name-sub--L {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.name-sub--P {
+    font-size: 1.7rem;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.date-sub--L {
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+
+.date-sub--P {
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+
+.time-sub--L {
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.time-sub--P {
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+
+div span.material-icons {
+    color: rgb(173, 173, 173);
+    font-size: 1rem;
+}
+
+div span.material-icons:hover {
+    color: rgb(173, 173, 173);
+    cursor: inherit;
+}

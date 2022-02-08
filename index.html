@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="comment-app-style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <title>comment section</title>
+    </head>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Dynalight&family=Encode+Sans+Condensed:wght@300&family=Kelly+Slab&family=Mrs+Saint+Delafield&family=Shadows+Into+Light&display=swap');
+    </style>
+
+    <body>
+        <main id="full-app">
+            <!-- INTRO -->
+            <article class="welcome br">
+
+                <!-- panda -->
+                <img id="panda" src="img/po.png" class="br">
+
+                <!-- hello -->
+                <h1 id="hello-there" class="kung-fu-font br"> Hello there!</h1>
+
+                <!-- thx4 -->
+                <p class="intro-thx kung-fu-font br"> THX 4 visting.</p>
+
+                <!-- drop a comment -->
+                <p class="intro-comment">
+                    Naw, while you're here - <br>pick your character, & drop a <br>
+                    <span class="kung-fu-font"> kung-fu</span><br>comment below:<br>
+                </p>
+
+                <span class="material-icons br">
+                    fast_forward
+                </span>
+
+            </article>
+
+            <!-- DIVIDER -->
+            <!-- <section>
+                <h5>
+                    <span class="kung-fu-font"> * * *</span>
+                </h5>
+            </section> -->
+
+            <!-- ADD COMMENT -->
+            <article class="comment-app__cont">
+
+                <!--avatar-->
+                <section class="avatar-add__cont">
+
+                    <!-- arr left -->
+                    <button id="arr-L">
+                        <span class="material-icons">
+                            arrow_back_ios
+                        </span>
+                    </button>
+
+                    <!-- photos -->
+                    <section class="avatar__cont">
+                        <img class="kfp-avatar" src="img/crane.png" alt="">
+                        <img class="kfp-avatar" src="img/mantis.png" alt="">
+                        <img class="kfp-avatar" src="img/mei.png" alt="">
+                        <img class="kfp-avatar" src="img/monkey.png" alt="">
+                        <img class="kfp-avatar" src="img/og.png" alt="">
+                        <img class="kfp-avatar" src="img/ox.png" alt="">
+                        <img class="kfp-avatar" src="img/shifu.png" alt="">
+                        <img class="kfp-avatar" src="img/tai.png" alt="">
+                        <img class="kfp-avatar" src="img/tig.png" alt="">
+                        <img class="kfp-avatar" src="img/vip.png" alt="">
+                    </section>
+
+                    <!-- animated br -->
+                    <section class="avatar-hov-border"></section>
+
+                    <!-- arr right -->
+                    <button id="arr-R">
+                        <span class="material-icons">
+                            arrow_forward_ios
+                        </span>
+                    </button>
+
+                </section>
+
+                <!--comment-->
+                <section class="comment-add__cont">
+                    <h2 class="kung-fu-font"> comment:</h2>
+                    <section class="comment-add__form">
+                        <form id="comment-form">
+
+                            <!-- name -->
+                            <label for="name">name:</label>
+                            <input type="text" name="name" id="name">
+
+                            <!-- comment -->
+                            <label for="comment">message:</label>
+                            <textarea name="" id="comment" cols="40" rows="10" ></textarea>
+
+                            <!-- submit -->
+                            <input type="submit" value="submit" id="submit">
+                        </form>
+                    </section>
+                </section>
+            </article>
+
+            <!-- COMM LIST-->
+            <article>
+                <section class="comment-list__cont">
+                    <h2 class="kung-fu-font"> dragon scroll:</h2>
+                    <ul class="comment-list"></ul>
+                </section>
+            </article>
+        </main>
+
+        <!-- JS -->
+        <script src="comment-app-js.js"></script>
+        <script src="comment-app-slider.js"></script>
+    </body>
+</html>
