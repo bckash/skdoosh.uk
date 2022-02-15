@@ -4,53 +4,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/eye.png" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="comment-app-style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet">
-    <title>comment section</title>
+    <title>Skadoosh | comment app</title>
     </head>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Dynalight&family=Encode+Sans+Condensed:wght@300&family=Kelly+Slab&family=Mrs+Saint+Delafield&family=Shadows+Into+Light&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Dynalight&family=Encode+Sans+Condensed:wght@300&family=Encode+Sans:wght@300;900&family=Kelly+Slab&family=Mrs+Saint+Delafield&family=Redressed&family=Shadows+Into+Light&family=Titan+One&display=swap');
     </style>
 
     <body>
-        <main id="full-app">
+        <main id="full-app" class="">
             <!-- INTRO -->
-            <article class="welcome br">
+            <section class="welcome">
 
                 <!-- panda -->
-                <img id="panda" src="img/po.png" class="br">
-
+                <div id="panda">
+                    <img alt="Poe" src="img/po.png" class="to-left__animation mq-fix">
+                </div>
+                
                 <!-- hello -->
-                <h1 id="hello-there" class="kung-fu-font br"> Hello there!</h1>
+                <h1 id="hello-there" class="kung-fu-font hello-in__animation"> Hello there!</h1>
 
                 <!-- thx4 -->
-                <p class="intro-thx kung-fu-font br"> THX 4 visting.</p>
+                <p class="intro-thx kung-fu-font thx4-in__animation"> THX 4 visting.</p>
 
-                <!-- drop a comment -->
+                <!-- naw... -->
                 <p class="intro-comment">
-                    Naw, while you're here - <br>pick your character, & drop a <br>
-                    <span class="kung-fu-font"> kung-fu</span><br>comment below:<br>
+                    <span class="word">
+                        Naw,
+                    </span>
+                    <span class="word">
+                        while 
+                    </span>
+                    <span class="word">
+                        you're  
+                    </span>
+                    <span class="word">
+                        here  
+                    </span>
+                    <br>                   
                 </p>
 
-                <span class="material-icons br">
-                    fast_forward
-                </span>
-
-            </article>
+                <!-- forward -->
+                <div id="forward__cont" class="">
+                    <span id="forward" class="material-icons forward-animation">
+                        fast_forward
+                    </span>
+                </div>
+                
+                <!-- down -->
+                <div id="arr-down__cont">
+                    <a id="arr-down" class="mq-fix-h-700-none" href="#divider">
+                        <span  class="material-icons">
+                            keyboard_arrow_down
+                        </span>
+                    </a>
+                    <a id="arr-down" class="mq-fix-h-700" href="#cap">
+                        <span  class="material-icons">
+                            keyboard_arrow_down
+                        </span>
+                    </a>
+                </div>
+                
+            </section>
 
             <!-- DIVIDER -->
-            <!-- <section>
+            <section id="divider" class="divider display-none">
                 <h5>
                     <span class="kung-fu-font"> * * *</span>
                 </h5>
-            </section> -->
+            </section>
 
             <!-- ADD COMMENT -->
-            <article class="comment-app__cont">
+            <article id="cap" class="comment-app__cont  display-none">
 
                 <!--avatar-->
                 <section class="avatar-add__cont">
@@ -92,31 +123,88 @@
                 <section class="comment-add__cont">
                     <h2 class="kung-fu-font"> comment:</h2>
                     <section class="comment-add__form">
+                        <!-- form -->
                         <form id="comment-form">
 
                             <!-- name -->
                             <label for="name">name:</label>
-                            <input type="text" name="name" id="name">
+                            <input type="text" name="name" id="name" placeholder="9 characters max" maxlength="9">
 
                             <!-- comment -->
                             <label for="comment">message:</label>
                             <textarea name="" id="comment" cols="40" rows="10" ></textarea>
 
-                            <!-- submit -->
-                            <input type="submit" value="submit" id="submit">
                         </form>
+
+                        <!-- submit -->                     
+                        <button type="submit" form="comment-form" value="submit" id="submit">
+                            <span class="material-icons">
+                                done
+                            </span>
+                        </button>
+                        
                     </section>
                 </section>
             </article>
 
             <!-- COMM LIST-->
-            <article>
-                <section class="comment-list__cont">
-                    <h2 class="kung-fu-font"> dragon scroll:</h2>
-                    <ul class="comment-list"></ul>
-                </section>
-            </article>
+            <section class="comment-list__cont  display-none">
+                <h2 id="scroll" class="kung-fu-font"> dragon scroll:</h2>
+                <ul class="comment-list">
+                    <li id="dw-honored" class="display-none">
+                        <section class="comment-ex2 ">
+                            <div>
+                                <img id="panda-end" src="img/a3.png" alt="">
+                                <div>
+                                    <span class="kung-fu-font">
+                                        Skadoosh.
+                                    </span><br>
+
+                                    <span class="smaller-font">A Warrior</span>
+                                    
+                                    <span class="smaller-font"> is honored.</span>
+
+                                </div>
+                            </div>    
+                        </section>
+                    </li>
+                </ul>
+            </section>
         </main>
+
+        <!-- quotes aside -->
+        <aside id="quotes">
+            <section">
+                <a id="q-link" class="" target="_blank" href="https://www.goodreads.com/quotes/tag/kung-fu-panda">KFP quotes</a>
+            </section>
+        </aside>
+
+        <!-- footer info -->
+        <footer id="foot-note" class="dn">
+            <article class="footer__cont">
+
+                <div id="f21" class="foot-link">
+                    <a target="_blank" href="https://github.com/">github</a>
+                </div>
+
+                <div id="f22" class="foot-link">
+                    <a target="_blank" href="https://code-learning.uk/">code-learning.uk</a>
+                </div>
+
+                <div id="f23" class="foot-link">
+                    <a target="_blank" href="https://www.kaszal.com/">kaszal.com</a>
+                </div>
+
+                <div id="f4" class="foot-text">
+                    This app is an educational project built for non-commercial usage. Kung Fu Panda is a DreamWorks Animation trademark. Get more info about the franchise @ <a target="_blank" href="https://kungfupanda.fandom.com/wiki/Kung_Fu_Panda_Wiki">fandom.com</a> 
+                </div>
+
+                <div id="f5" class="foot-date">
+                    2022 | <span class="kash">kaszalot</span>
+                </div>
+
+            </article>
+        </footer>
 
         <!-- JS -->
         <script src="comment-app-js.js"></script>

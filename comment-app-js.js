@@ -1,7 +1,11 @@
 
 
 
+// COMMENT elements
+// -----------------------------
+
 // const
+
 const inputForm = document.getElementById("comment-form");
 const inputField = document.querySelector("#comment");
 const inputFieldName = document.querySelector("#name");
@@ -13,18 +17,176 @@ const nameField = document.getElementById("name");
 const msgField = document.getElementById("comment");
 const imgPick = [];
 const allImg = imgCont.children;
+const honoredLi = document.getElementById("dw-honored");
+const submitBut = document.getElementById("submit");
+const footer = document.getElementById("foot-note");
 
-//EL
+// EL
+
 inputForm.addEventListener("submit", addComment);
 comList.addEventListener("click", delComment);
 imgCont.addEventListener("click", pickIMG);
 imgCont.addEventListener("mouseenter", borderRotateOn);
 imgCont.addEventListener("mouseleave", borderRotateOff);
-nameField.addEventListener("change",changeFieldColorN);
-msgField.addEventListener("change",changeFieldColorM);
+nameField.addEventListener("change", changeFieldColorN);
+msgField.addEventListener("change", changeFieldColorM);
+submitBut.addEventListener("mouseenter", hoverSubmitON);
+submitBut.addEventListener("mouseleave", hoverSubmitOFF);
 
 
-// animated border on. (e.target = imgCont) 
+// INTRO elements
+// ------------------------
+
+// const
+
+const forwardBut = document.getElementById("forward");
+const helloThere = document.getElementById("hello-there");
+const thx4 = document.querySelector(".intro-thx");
+const dropComment = document.querySelector(".intro-comment");
+const arrDown = document.getElementById("arr-down__cont");
+const dispNoneGroup = document.getElementsByClassName("display-none");
+const wordIntroGroup = document.getElementsByClassName("word");
+const panda = document.getElementById("panda");
+const asideSec = document.getElementById("quotes");
+
+//EL
+
+forwardBut.addEventListener("click", forward);
+arrDown.addEventListener("click", down);
+
+
+// FUNCTIONS
+// ---------
+
+
+// forward buton
+function forward() {
+
+    // ecsape animation for previus text
+    function addRemoveAnimation(const1, c11, c12, const2, c21) {
+        const1.classList.remove(`${c11}`);
+        const1.classList.add(`${c12}`);
+        const2.classList.remove(`${c21}`);
+    }
+
+    addRemoveAnimation(helloThere, "hello-in__animation",  "hello-escape__animation", thx4, "thx4-in__animation", ".thx4-escape__animation");
+
+    panda.classList.remove("to-left__animation");
+    panda.classList.add("wiggle__animation");
+
+    forwardBut.style.display = "none";
+    dropComment.style.display ="inline-block";
+
+
+    // [function] for word animation
+    function wordAnimation (arr, time){
+        for (let i = 0; i < arr.length; i++) {
+
+            setTimeout(function(){
+                arr[i].classList.add("word-animation");
+            }, time*i);
+        }
+    }
+
+    // [function] for "kung-fu"
+    function addkungFu (arr, clA, timeIN, timeEX) {
+
+        setTimeout(function(){
+            
+            const p = document.querySelector(".intro-comment");
+            const br = document.createElement("br");
+            p.appendChild(br);
+
+            for (let i = 0; i < arr.length; i++){
+
+                setTimeout(function(){
+
+                    const t = document.createTextNode(`${arr[i]}`);
+                    const s = document.createElement("span"); 
+                    s.appendChild(t);
+                    s.classList.add("word");
+                    s.classList.add("kung-fu-font")
+                    s.classList.add(`${clA}`);
+                    panda.classList.remove("wiggle__animation");
+                    panda.classList.add("wiggle2__animation");
+                    p.appendChild(s);
+                }, timeIN*i)
+            }
+        }, timeEX)
+    }
+
+    // [function] for "comnent below"
+    function addCB (arr, clA, timeIN, timeEX) {
+
+        setTimeout(function(){
+            
+            const p = document.querySelector(".intro-comment");
+            const br = document.createElement("br");
+            p.appendChild(br);
+
+            for (let i = 0; i < arr.length; i++){
+
+                setTimeout(function(){
+
+                    const t = document.createTextNode(`${arr[i]}`);
+                    const s = document.createElement("span"); 
+                    s.appendChild(t);
+                    s.classList.add("word");
+                    s.classList.add(`${clA}`);
+                    p.appendChild(s);
+                }, timeIN*i)
+            }
+        }, timeEX)
+    }
+
+    // "naw,..." word animation
+    const y = wordIntroGroup;
+    wordAnimation (y,180);
+
+    // "pick your..." letter animation
+    setTimeout(function(){
+
+        const sent = "pick your character, & drop a"
+        const ar = Array.from(sent);
+
+        for (let i = 0; i < ar.length; i++) {
+            setTimeout(function(){
+
+                const l = document.createTextNode(`${ar[i]}`);
+                const sp = document.createElement("span");
+                sp.appendChild(l);
+                sp.classList.add("word");
+                sp.classList.add("letter-animation");
+                const p = document.querySelector(".intro-comment");
+                p.appendChild(sp);
+            }, 40*i)
+        } 
+    }, 1000)
+
+    // "kung-fu..." word animation
+    const z = ["kung-", "fu"];
+    addkungFu(z, "word-animation", 400, 2350)
+
+    // "comment below" word animation
+    const cb = ["comment ", "below: "];
+    addCB(cb, "word-animation", 280, 3050)
+
+    setTimeout(function(){
+        arrDown.style.display = "inline-block";
+    }, 3450)
+
+}
+
+// down button
+function down() {
+    const z = dispNoneGroup;
+    for (let i=0; i<z.length; i++) {
+        z[i].style.display = "block";
+    }
+    asideSec.style.display = "inline-block"
+}
+
+// "animated border" ON (e.target = imgCont) 
 function borderRotateOn(e) {
     if (imgPick[0] === undefined) {
         hovBorder.classList.add("js-border-animation");
@@ -32,7 +194,7 @@ function borderRotateOn(e) {
     } 
 }
 
-// animated border off
+// "animated border" OFF
 function borderRotateOff(e) {
 
     if (imgPick[0] === undefined) {
@@ -42,7 +204,7 @@ function borderRotateOff(e) {
     }
 }
 
-// f: change the border of the choosen pick, and push it to imgPick array - to grab it outside. (1) The reaseon why EL is on parent <section> and not the <img> element itself is only the first <img> element is being selected. (2) different "ifs" regulating situations.
+// f: change the border of the choosen pick, and push it to imgPick array - to grab it outside. (1) The reaseon why EL is on parent <section> and not the <img> element itself is only the first <img> element of slider is being selected. (2) different "ifs" regulating situations.
 function pickIMG(e) {
 
     // remove animated border & grey border
@@ -88,7 +250,7 @@ function pickIMG(e) {
     } 
 }
 
-// change name input border color
+// change "comment: name input" border color
 function changeFieldColorN() {
     if (nameField.value !== "") {
         nameField.style.borderColor = "green";
@@ -97,7 +259,7 @@ function changeFieldColorN() {
     }
 }
 
-// change message input border color
+// change "comment: message input" border color
 function changeFieldColorM() {
     if (msgField.value !== "") {
         msgField.style.borderColor = "green";
@@ -106,19 +268,39 @@ function changeFieldColorM() {
     }
 }
 
+// hoover ON submit button
+function hoverSubmitON() {
+
+    if (inputField.value !== "" && inputFieldName.value !== "" && imgPick[0]) {
+        submitBut.firstElementChild.style.color = "green";
+    } else {
+        submitBut.firstElementChild.style.color = "black";
+    }
+}
+
+// hoover OFF submit button
+function hoverSubmitOFF() {
+    submitBut.firstElementChild.style.color = "var(--mi-grey)"
+} 
+
 // add comment
 function addComment(e) {
 
     // fill all forms before submitting
     if (inputField.value === "" && inputFieldName.value === "" && imgPick[0] === undefined ) {
+        e.preventDefault();
         alert("pick a character & add a name with comment");  
     } else if (inputField.value === "" && inputFieldName.value === "") {
+        e.preventDefault();
         alert("add a name with comment"); 
     } else if (inputFieldName.value === "") {
+        e.preventDefault();
         alert("add a name");
     } else if (inputField.value === "") {
+        e.preventDefault();
         alert("add a comment");
     } else if (imgPick[0] === undefined) {
+        e.preventDefault();
         alert("pick a character");
     }
     
@@ -142,7 +324,7 @@ function addComment(e) {
 
     const av = document.createElement("img");
     av.setAttribute("src", `${imgPick[0].src}`);
-    av.className = "comment-avatar"
+    av.className = "comment-avatar";
 
     // 1.2 | txt nodes
 
@@ -305,11 +487,24 @@ function addComment(e) {
     
     // 2.5 | li 
     // new comments go first
+    // + skadoosh 
 
-    if (comList.firstChild === null ) {
-        comList.appendChild(li);
-    } else {
-        comList.insertBefore(li, comList.firstChild)
+    if (Array.from(comList.children).length ===  1) {
+        function removeClass (el, cl){
+            el.classList.remove(cl);
+        }
+
+        removeClass(honoredLi, "display-none");
+        removeClass(footer, "dn");
+
+    }
+
+    comList.insertBefore(li, comList.firstChild)
+
+    // 2.6 | scroll to
+
+    if (inputField.value !== "" && inputFieldName.value !== "" && imgPick[0]) {
+        window.location.href="#scroll"
     }
 
     //...................
@@ -377,6 +572,10 @@ function delComment(e) {
     if (e.target.classList.contains("material-icons")) {
         
         e.target.parentElement.parentElement.parentElement.parentElement.remove();
+    }
+
+    if (Array.from(comList.children).length ===  1) {
+        honoredLi.classList.add("display-none");
     }
 
 }
