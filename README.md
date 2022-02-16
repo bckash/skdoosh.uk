@@ -5,8 +5,14 @@
 ## about
 
 This is a **Java Script** comment aplication in Kung-Fu Panda theme motive design 🐼 After short animated interactive intro, 
-user chooses a character and submits a name and a message - which comes out as a styled comment, with date and time attached.
+user chooses avatar for himself and submits a name and a message - which comes out as a styled comment, with date and time attached.
 
+## purpose
+
+Demonstration of handling Java Script:
+* fundamentals; 
+* DOM manipulation;
+* Events.
 
 ## features
 
