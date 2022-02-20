@@ -115,7 +115,7 @@ function forward() {
         }, timeEX)
     }
 
-    // [function] for "comnent below"
+    // [function] for "comment below"
     function addCB (arr, clA, timeIN, timeEX) {
 
         setTimeout(function(){

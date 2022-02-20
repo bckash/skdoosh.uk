@@ -225,8 +225,6 @@ span#forward.material-icons:hover {
 /* drop a comment + animation */
 
 .intro-comment {
-    position: absolute;
-    top: 32rem;
     display: none;
     font-weight: bold;
 }
@@ -921,7 +919,7 @@ a#q-link:hover {
 
 /* height */
 
-@media only screen and (max-height: 2200px) {
+/* @media only screen and (max-height: 2200px) {
 
     #panda {
         margin-top: 30rem;
@@ -1086,4 +1084,4 @@ a#q-link:hover {
     #arr-down__cont {
         margin-top: 1.5rem;
     }
-}
+} */
