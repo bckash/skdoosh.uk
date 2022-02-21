@@ -34,8 +34,8 @@ nameField.addEventListener("change", changeFieldColorN);
 msgField.addEventListener("change", changeFieldColorM);
 submitBut.addEventListener("mouseenter", hoverSubmitON);
 submitBut.addEventListener("mouseleave", hoverSubmitOFF);
-asideSec.addEventListener("touchstart", slideAside);
-asideSec.addEventListener("mouseenter", slideAside);
+// asideSec.addEventListener("touchstart", slideAside);
+// asideSec.addEventListener("mouseenter", slideAside);
 
 
 // INTRO elements
