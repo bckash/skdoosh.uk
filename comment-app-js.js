@@ -20,6 +20,8 @@ const allImg = imgCont.children;
 const honoredLi = document.getElementById("dw-honored");
 const submitBut = document.getElementById("submit");
 const footer = document.getElementById("foot-note");
+const asideSec = document.getElementById("quotes");
+const asideA = document.getElementById("q-link");
 
 // EL
 
@@ -32,6 +34,8 @@ nameField.addEventListener("change", changeFieldColorN);
 msgField.addEventListener("change", changeFieldColorM);
 submitBut.addEventListener("mouseenter", hoverSubmitON);
 submitBut.addEventListener("mouseleave", hoverSubmitOFF);
+asideSec.addEventListener("touchstart", slideAside);
+asideSec.addEventListener("mouseenter", slideAside);
 
 
 // INTRO elements
@@ -47,7 +51,8 @@ const arrDown = document.getElementById("arr-down__cont");
 const dispNoneGroup = document.getElementsByClassName("display-none");
 const wordIntroGroup = document.getElementsByClassName("word");
 const panda = document.getElementById("panda");
-const asideSec = document.getElementById("quotes");
+const scene1txt = document.querySelector(".scene-1-txt__cont");
+
 
 //EL
 
@@ -62,7 +67,7 @@ arrDown.addEventListener("click", down);
 // forward buton
 function forward() {
 
-    // ecsape animation for previus text
+    // ecsape animation for all
     function addRemoveAnimation(const1, c11, c12, const2, c21) {
         const1.classList.remove(`${c11}`);
         const1.classList.add(`${c12}`);
@@ -70,6 +75,8 @@ function forward() {
     }
 
     addRemoveAnimation(helloThere, "hello-in__animation",  "hello-escape__animation", thx4, "thx4-in__animation", ".thx4-escape__animation");
+
+    scene1txt.classList.add("hello-escape__animation");
 
     panda.classList.remove("to-left__animation");
     panda.classList.add("wiggle__animation");
@@ -580,3 +587,12 @@ function delComment(e) {
 
 }
 
+// aside slide in [mobile]
+function slideAside () {
+    console.log("Hi")
+    asideSec.classList.add("aside-slide");
+    setTimeout(function(){
+        console.log("Hi2")
+        asideSec.classList.remove("aside-slide");
+    }, 3000)
+}

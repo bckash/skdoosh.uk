@@ -38,7 +38,7 @@ section.comment-add__cont h2, section.comment-list__cont h2 {
 }
 
 body {
-    min-width: 300px;
+    min-width: 280px;
 }
 
 /* .......................... */
@@ -48,9 +48,8 @@ body {
 
 .welcome {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    overflow: hidden;
 }
 
 #hello-there, .intro-thx, .welcome .material-icons {
@@ -60,8 +59,6 @@ body {
 .intro-thx, .intro-comment {
     font-family: 'Encode Sans Condensed', sans-serif;
     font-size: 1.5rem;
-    margin: 0 auto;
-    width: 70%;
 }
 
 .kung-fu-font {
@@ -71,17 +68,72 @@ body {
 }
 
 
-/* panda + animation */
+/* INTRO  */
+/* .......................... */
+/* ELEMENTS */
 
 
 #panda {
-    margin-top: 7rem;
+    margin-top: 11rem;
 }
 
 #panda:hover {
     transform: rotate(10deg);
     transition: transform .001s;
 }
+
+#scene-big-animation__cont {
+    height: 8.5rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.scene-1-txt__cont {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+section.welcome h1 {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+#hello-there {
+    font-size: 3rem;
+    background-color: white;
+    opacity: 0;
+}
+
+p.intro-thx {
+    font-size: 1.7rem;
+    color: black;
+    opacity: 0;
+    margin: 0;
+}
+
+p.intro-comment {
+    display: none;
+    font-weight: bold;
+    margin: 0;
+
+}
+
+#arr-down__cont, .mq-fix-820-2 {
+    display: none;
+}
+
+
+
+/* INTRO  */
+/* .......................... */
+/* ANIMATIONS */
+
+
+
+/* A: panda */
+
 
 .to-left__animation {
     animation-name: toLeft;
@@ -116,30 +168,19 @@ body {
     55% {transform: rotate(0);}
 }
 
-/* hello there + animation */
 
+/* A: hello there */
 
-section.welcome h1 {
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-#hello-there {
-    font-size: 3rem;
-    background-color: white;
-    opacity: 0;
-}
 
 .hello-in__animation {
-    animation-name: toRight;
+    animation-name: toLeft;
     animation-duration: 0.2s;
     animation-iteration-count: 1;
     animation-delay: 0.1s;
     animation-fill-mode: forwards;
 }
 
-@keyframes toRight {
+@keyframes toLeft {
     from {
         transform: translateX(30rem);
         opacity: 0;
@@ -154,6 +195,7 @@ section.welcome h1 {
     animation-name: hello-escape;
     animation-duration: 0.2s;
     animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 @keyframes hello-escape {
@@ -164,18 +206,12 @@ section.welcome h1 {
     }
     to {
         opacity: 0;
-        transform: translate(10rem);
+        transform: translate(30rem);
     }
 }
 
-/* thankx 4 + animation */
+/* A: thanx 4 */
 
-
-p.intro-thx {
-    font-size: 1.7rem;
-    color: black;
-    opacity: 0;
-}
 
 .thx4-in__animation {
     animation-name: thx4-in;
@@ -195,7 +231,7 @@ p.intro-thx {
   }
 
 
-/* forward icon + animation */
+/* A: forward icon  */
 
 
 span#forward.material-icons {
@@ -222,12 +258,8 @@ span#forward.material-icons:hover {
     to {transform: translateX(0.2rem);}
 }
 
-/* drop a comment + animation */
+/* A: naw, while..... */
 
-.intro-comment {
-    display: none;
-    font-weight: bold;
-}
 
 span.word {
     opacity: 0;
@@ -250,13 +282,8 @@ span.word {
     to {opacity: 1;}
 }
 
+
 /* down icon + animation */
-
-
-#arr-down__cont {
-    display: none;
-    margin-top: 1.8rem;
-}
 
 
 a#arr-down span {
@@ -276,9 +303,11 @@ a#arr-down span:hover {
     transition: color .8s;
 }
 
+
 /* .......................... */
 /* ADD COMMENT - [avatar].... */
 /* .......................... */
+
 
 
 .comment-app__cont {
@@ -744,25 +773,27 @@ aside {
     position: fixed;
     right: 0;
     top: 60%;
-}
-
-a#q-link {
-
-    font-size: .8rem;
-    display: inline-block;
     color: rgb(116, 116, 116);
-    text-decoration: none;
-    padding: .7rem .8rem;
-    letter-spacing: 0.05rem;
-    text-transform: uppercase;
+    padding-left: 2rem;
+
     background-color: rgb(207, 207, 207);
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
     box-shadow: 1px 5px 20px rgb(214, 214, 214);
-    padding-left: 2rem;
 
     transform: translateX(6rem);
     transition: transform .1s;
+}
+
+a#q-link {
+    font-size: .8rem;
+    display: inline-block;
+    text-decoration: none;
+    padding: .7rem;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    background-color: rgb(230, 230, 230);
+
 
 }
 
@@ -770,11 +801,10 @@ a#q-link {
     animation: labelAttention 5s infinite;
 }
 
-a#q-link:hover {
-    animation: none;
+.aside-slide {
     transform: translateX(0);
-
 }
+
 
 
 /* .......................... */
@@ -797,6 +827,7 @@ a#q-link:hover {
     div.com-body {
         padding: 1rem;
     }
+
 }
 
 @media only screen and (max-width: 480px) {
@@ -836,7 +867,6 @@ a#q-link:hover {
 }
 
 @media only screen and (max-width: 400px) {
-    /* fonts */
     .name-sub--P {
         font-size: 1.5rem;
     }
@@ -899,7 +929,6 @@ a#q-link:hover {
     .intro-comment {
         font-size: 1.4rem;
     }
-
 }
 
 @media only screen and (max-width: 332px) {
@@ -914,174 +943,34 @@ a#q-link:hover {
     #panda {
         margin-top: 16rem;
     }
-
 }
 
 /* height */
 
-/* @media only screen and (max-height: 2200px) {
 
-    #panda {
-        margin-top: 30rem;
-    }
-
-    .intro-comment {
-        top: 55rem;
-    }
-
-    .mq-fix-h-700-none {
-        display: inline-block;
-    }
-
-    .mq-fix-h-700 {
-        display: none;
-    }
-}
-
-
-@media only screen and (max-height: 1600px) {
-
-    #panda {
-        margin-top: 25rem;
-    }
-
-    .intro-comment {
-        top: 50rem;
-    }
-
-}
-
-@media only screen and (max-height: 1200px) {
-
-    #panda {
-        margin-top: 19rem;
-    }
-
-    .intro-comment {
-        top: 44rem;
-    }
-
-}
-
-@media only screen and (max-height: 1050px) {
-
-    #panda {
-        margin-top: 15rem;
-    }
-
-    .intro-comment {
-        top: 40rem;
-    }
-
-}
 
 @media only screen and (max-height: 900px) {
-
-    #panda {
-        margin-top: 13rem;
-    }
-
-    .intro-comment {
-        top: 38rem;
-    }
-
-}
-
-@media only screen and (max-height: 850px) {
-
-    #panda {
-        margin-top: 12rem;
-    }
-
-    .intro-comment {
-        top: 37rem;
-    }
-
-}
-
-@media only screen and (max-height: 800px) {
 
     #panda {
         margin-top: 10rem;
     }
 
-    .intro-comment {
-        top: 35rem;
-    }
-
 }
 
-
-@media only screen and (max-height: 770px) {
-
-    .mq-fix-h-700-none {
-        display: none;
-    }
-
-    .mq-fix-h-700 {
+@media only screen and (max-height: 820px)
+{
+    .mq-fix-820-2 {
         display: inline-block;
     }
 
-    #panda {
-        margin-top: 9rem;
+    .mq-fix-820-1 {
+        display: none;
     }
-
-    .intro-comment {
-        top: 34rem;
-    }
-
-}
-
-@media only screen and (max-height: 760px) {
-
-    #panda {
-        margin-top: 7rem;
-    }
-
-    .intro-comment {
-        top: 32rem;
-    }
-
-}
-
-@media only screen and (max-height: 720px) {
-
-    #panda {
-        margin-top: 5rem;
-    }
-
-    .intro-comment {
-        top: 30rem;
-    }
-
 }
 
 @media only screen and (max-height: 685px) {
 
     #panda {
-        margin-top: 3rem;
-    }
-
-    .intro-comment {
-        top: 28rem;
-    }
-
-    #arr-down__cont {
-        margin-top: 1.5rem;
+        margin-top: 6rem;
     }
 }
-
-@media only screen and (max-height: 650px) {
-
-    #panda {
-        margin-top: 1rem;
-    }
-
-    .intro-comment {
-        top: 26rem;
-    }
-
-    #arr-down__cont {
-        margin-top: 1.5rem;
-    }
-} */
